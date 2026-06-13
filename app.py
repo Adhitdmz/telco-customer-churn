@@ -3,7 +3,7 @@ import joblib
 import pandas as pd
 
 # Load model
-model = joblib.load("churn_model.pkl")
+model = joblib.load("churn_model_v2.pkl")
 
 st.set_page_config(
     page_title="Telco Customer Churn",
