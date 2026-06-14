@@ -90,37 +90,37 @@ with col1:
         ["DSL", "Fiber optic", "No"]
     )
 
-    OnlineSecurity = st.selectbox(
-        "Online Security",
-        ["Yes", "No"]
-    )
+OnlineSecurity = st.selectbox(
+    "Online Security",
+    ["No", "No internet service", "Yes"]
+)
 
-    OnlineBackup = st.selectbox(
-        "Online Backup",
-        ["Yes", "No"]
-    )
+OnlineBackup = st.selectbox(
+    "Online Backup",
+    ["No", "No internet service", "Yes"]
+)
 
 with col2:
 
-    DeviceProtection = st.selectbox(
-        "Device Protection",
-        ["Yes", "No"]
-    )
+  DeviceProtection = st.selectbox(
+    "Device Protection",
+    ["No", "No internet service", "Yes"]
+)
 
-    TechSupport = st.selectbox(
-        "Tech Support",
-        ["Yes", "No"]
-    )
+TechSupport = st.selectbox(
+    "Tech Support",
+    ["No", "No internet service", "Yes"]
+)
 
-    StreamingTV = st.selectbox(
-        "Streaming TV",
-        ["Yes", "No"]
-    )
+StreamingTV = st.selectbox(
+    "Streaming TV",
+    ["No", "No internet service", "Yes"]
+)
 
-    StreamingMovies = st.selectbox(
-        "Streaming Movies",
-        ["Yes", "No"]
-    )
+StreamingMovies = st.selectbox(
+    "Streaming Movies",
+    ["No", "No internet service", "Yes"]
+)
 
     Contract = st.selectbox(
         "Contract",
@@ -157,27 +157,62 @@ with col2:
     )
 
 if st.button("🔮 Prediksi Customer"):
+   
+
+    gender_map = {"Female": 0, "Male": 1}
+    yes_no_map = {"No": 0, "Yes": 1}
+
+    multiple_map = {
+        "No": 0,
+        "No phone service": 1,
+        "Yes": 2
+    }
+
+    internet_map = {
+        "DSL": 0,
+        "Fiber optic": 1,
+        "No": 2
+    }
+
+    security_map = {
+        "No": 0,
+        "No internet service": 1,
+        "Yes": 2
+    }
+
+    contract_map = {
+        "Month-to-month": 0,
+        "One year": 1,
+        "Two year": 2
+    }
+
+    payment_map = {
+        "Bank transfer (automatic)": 0,
+        "Credit card (automatic)": 1,
+        "Electronic check": 2,
+        "Mailed check": 3
+    }
 
     data = pd.DataFrame({
-        'gender':[gender],
-        'SeniorCitizen':[SeniorCitizen],
-        'Partner':[Partner],
-        'Dependents':[Dependents],
-        'tenure':[tenure],
-        'PhoneService':[PhoneService],
-        'MultipleLines':[MultipleLines],
-        'InternetService':[InternetService],
-        'OnlineSecurity':[OnlineSecurity],
-        'OnlineBackup':[OnlineBackup],
-        'DeviceProtection':[DeviceProtection],
-        'TechSupport':[TechSupport],
-        'StreamingTV':[StreamingTV],
-        'StreamingMovies':[StreamingMovies],
-        'Contract':[Contract],
-        'PaperlessBilling':[PaperlessBilling],
-        'PaymentMethod':[PaymentMethod],
-        'MonthlyCharges':[MonthlyCharges],
-        'TotalCharges':[TotalCharges]
+        'gender': [gender_map[gender]],
+        'SeniorCitizen': [SeniorCitizen],
+        'Partner': [yes_no_map[Partner]],
+        'Dependents': [yes_no_map[Dependents]],
+        'tenure': [tenure],
+        'PhoneService': [yes_no_map[PhoneService]],
+        'MultipleLines': [multiple_map[MultipleLines]],
+        'InternetService': [internet_map[InternetService]],
+        'OnlineSecurity': [security_map[OnlineSecurity]],
+        'OnlineBackup': [security_map[OnlineBackup]],
+        'DeviceProtection': [security_map[DeviceProtection]],
+        'TechSupport': [security_map[TechSupport]],
+        'StreamingTV': [security_map[StreamingTV]],
+        'StreamingMovies': [security_map[StreamingMovies]],
+        'Contract': [contract_map[Contract]],
+        'PaperlessBilling': [yes_no_map[PaperlessBilling]],
+        'PaymentMethod': [payment_map[PaymentMethod]],
+        'MonthlyCharges': [MonthlyCharges],
+        'TotalCharges': [TotalCharges]
     })
 
     prediction = model.predict(data)
