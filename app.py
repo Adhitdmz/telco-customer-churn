@@ -90,37 +90,37 @@ with col1:
         ["DSL", "Fiber optic", "No"]
     )
 
-OnlineSecurity = st.selectbox(
-    "Online Security",
-    ["No", "No internet service", "Yes"]
-)
+    OnlineSecurity = st.selectbox(
+        "Online Security",
+        ["No", "No internet service", "Yes"]
+    )
 
-OnlineBackup = st.selectbox(
-    "Online Backup",
-    ["No", "No internet service", "Yes"]
-)
+    OnlineBackup = st.selectbox(
+        "Online Backup",
+        ["No", "No internet service", "Yes"]
+    )
 
 with col2:
 
-  DeviceProtection = st.selectbox(
-    "Device Protection",
-    ["No", "No internet service", "Yes"]
-)
+    DeviceProtection = st.selectbox(
+        "Device Protection",
+        ["No", "No internet service", "Yes"]
+    )
 
-TechSupport = st.selectbox(
-    "Tech Support",
-    ["No", "No internet service", "Yes"]
-)
+    TechSupport = st.selectbox(
+        "Tech Support",
+        ["No", "No internet service", "Yes"]
+    )
 
-StreamingTV = st.selectbox(
-    "Streaming TV",
-    ["No", "No internet service", "Yes"]
-)
+    StreamingTV = st.selectbox(
+        "Streaming TV",
+        ["No", "No internet service", "Yes"]
+    )
 
-StreamingMovies = st.selectbox(
-    "Streaming Movies",
-    ["No", "No internet service", "Yes"]
-)
+    StreamingMovies = st.selectbox(
+        "Streaming Movies",
+        ["No", "No internet service", "Yes"]
+    )
 
     Contract = st.selectbox(
         "Contract",
